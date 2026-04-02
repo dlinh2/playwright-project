@@ -86,21 +86,23 @@ data/
 **Objective:**  Validate user authentication functionality.
 
 **🧪 Test Scenarios**
-✅ 1. Login successfully
-Enter valid username & password
-Click Log in
-Verify:
-User is logged in successfully
-Username is displayed on the navbar
-❌ 2. Login with empty fields
-Click Log in without entering data
-Verify:
-Error alert is shown
-❌ 3. Login with invalid credentials
-Enter incorrect username or password
-Click Log in
-Verify:
-Error message is displayed
+1. **Login successfully ✅**
+   * Enter valid username & password
+   * Click Log in
+   * Verify:
+     * User is logged in successfully
+     * Username is displayed on the navbar
+
+2. **Login with empty fields ❌**
+   * Click Log in without entering data
+   * Verify:
+     *Error alert is shown
+     
+3. **Login with invalid credentials ❌**
+   * Enter incorrect username or password
+   * Click Log in
+   * Verify:
+     * Error message is displayed
 
 ---
 
