@@ -1,53 +1,136 @@
-# 🎭 Playwright Automation Project
+# 🧪 Playwright E2E Testing Project
 
 ## 📌 Overview
 
-This project demonstrates end-to-end testing using Playwright with the Page Object Model (POM) design pattern. The goal is to build scalable, maintainable, and reliable UI automation tests.
+This project demonstrates end-to-end (E2E) testing using Playwright with the Page Object Model (POM) design pattern.
 
-## 🚀 Features
+The test suite validates core user flows on the demo e-commerce website:
+👉 https://demoblaze.com
 
-* Login functionality testing (success & failure)
-* Add and remove products from cart
-* Homepage UI verification
-* Data-driven testing approach
+---
 
-## 🧠 Tech Stack
-
-* Playwright
-* TypeScript
-* Page Object Model (POM)
-
-## 📂 Project Structure
+## 🏗️ Project Structure
 
 ```
-e2e/
- ├── page/        # Page Object classes
- ├── data/        # Data set
-tests/       # Test cases
-playwright.config.ts
+tests/
+ ├── home.spec.ts        # Homepage test cases
+ ├── cart.spec.ts        # Add to cart flow
+ ├── cart.spec.ts        # login test case
+
+e2e/page/
+ ├── home.page.ts        # Homepage actions & locators
+ ├── product.page.ts     # Product detail actions
+ ├── cart.page.ts        # Cart actions
+ ├── product.detail.ts   # Product detail actions
+
+data/
+ ├── productsData.ts     # Product test data
+ ├── footerData.ts       # Footer content data
+ ├── login.data.ts       # login data
 ```
 
-## ▶️ Run Tests
+## 🧪 Test Scenarios
+
+### 1. 🏠 Homepage Tests (`home.spec.ts`)
+
+**Objective:** Verify that the homepage loads correctly and displays required elements.
+
+**Test cases:**
+
+* ✅ Verify homepage is accessible
+* ✅ Verify product categories are displayed (Phones, Laptops, Monitors)
+* ✅ Verify product list (name & price)
+* ✅ Verify footer content:
+
+  * About Us
+  * Contact information
+  * Address, phone, email
+
+---
+
+### 2. 🛒 Cart Flow Tests (`cart.spec.ts`)
+
+**Objective:** Validate the complete user journey from selecting a product to viewing it in the cart.
+
+**Test flow:**
+
+1. **Select product**
+
+   * Click on a product from homepage
+   * Verify navigation to product detail page (`/prod.html`)
+
+2. **Verify product details**
+
+   * Product name
+   * Price
+   * Description
+
+3. **Add to cart**
+
+   * Click "Add to cart"
+   * Handle confirmation alert
+
+4. **Navigate to cart**
+
+   * Click "Cart"
+   * Verify URL (`/cart.html`)
+
+5. **Verify product in cart**
+
+   * Product name
+   * Product price
+
+---
+## 3. 🔐 Login Tests (login.spec.ts)
+
+**Objective:**  Validate user authentication functionality.
+
+**🧪 Test Scenarios**
+✅ 1. Login successfully
+Enter valid username & password
+Click Log in
+Verify:
+User is logged in successfully
+Username is displayed on the navbar
+❌ 2. Login with empty fields
+Click Log in without entering data
+Verify:
+Error alert is shown
+❌ 3. Login with invalid credentials
+Enter incorrect username or password
+Click Log in
+Verify:
+Error message is displayed
+
+---
+
+## 🎯 Key Features
+
+* ✅ Page Object Model (POM)
+* ✅ Data-driven testing
+* ✅ Random product selection
+* ✅ End-to-end user flow validation
+* ✅ Reusable and maintainable structure
+
+---
+
+## 🚀 How to Run Tests
 
 ```bash
+npm install
 npx playwright test
 ```
 
-## 📊 View Report
+---
 
-```bash
-npx playwright show-report
-```
+## 🧠 Future Enhancements
 
-## ✅ Status
+* Add login test scenarios
+* Add negative test cases
+* Integrate API validation
+* Improve CI/CD pipeline (GitHub Actions)
 
-* Tests are stable and passing locally
-
-## 🎯 Future Improvements
-
-* Add checkout flow
-* Integrate CI/CD
-* Improve test coverage
+---
 
 ## Test result
 * Test result 02/04/2026
