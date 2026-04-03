@@ -1,4 +1,10 @@
-import { LoginCredentials } from "../page/login.page";
+interface LoginCredentials {
+  username?: string;
+  password?: string;
+  expected: 'success' | 'fail';
+  message?: string;
+}
+
 
 export const loginData: LoginCredentials[] = [
   // HAPPY CASE

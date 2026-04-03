@@ -12,7 +12,9 @@ test.describe('Login Tests - Full Coverage', () => {
       await loginPage.expectLoginModalOpen();
 
       // ACTION
-      await loginPage.login(data);
+      await loginPage.login(data.username, data.password);
+      // ASSERT
+      await loginPage.expectLoginResult(data.message || '');
       // wait to debug
       await page.waitForTimeout(2000);
     });

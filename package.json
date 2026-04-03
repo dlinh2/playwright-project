@@ -3,13 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "bdd:gen": "npx playwright-bdd generate",
+    "test": "npm run bdd:gen && playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.59.1",
-    "@types/node": "^25.5.0"
+    "@types/node": "^25.5.0",
+    "playwright-bdd": "^8.5.0"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^12.7.0"
   }
 }

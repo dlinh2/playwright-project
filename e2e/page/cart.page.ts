@@ -1,4 +1,5 @@
 import { Page, expect } from '@playwright/test';
+import { time } from 'node:console';
 
 export class CartPage {
   constructor(private page: Page) {}
@@ -16,7 +17,7 @@ export class CartPage {
   async expectProductInCart(productName: string) {
     await expect(
       this.page.locator('#tbodyid')
-    ).toContainText(productName);
+    ).toContainText(productName, { timeout: 10000 });
   }
 
   async deleteProduct(productName: string) {

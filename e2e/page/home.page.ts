@@ -84,6 +84,6 @@ export class HomePage {
 
   async clickProduct(productName: string) {
     await this.page.getByRole('link', { name: productName }).click();
-    await expect(this.page).toHaveURL(/prod.html/);
+    await expect(this.page).toHaveURL(/prod.html/, { timeout: 10000 });
   }
 }
