@@ -8,7 +8,7 @@ Feature: Login
 
 Examples:
   | type                        | username   | password | message                               |
-  | valid                       | tun        | admin    | Welcome tun                      |
+  | valid                       | tun        | admin    | Welcome tun                           |
   | empty username              |            | admin    | Please fill out Username and Password |
   | empty password              | tun        |          | Please fill out Username and Password |
   | empty username and password |            |          | Please fill out Username and Password |
