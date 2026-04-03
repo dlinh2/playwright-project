@@ -39,6 +39,9 @@ export class HomePage {
   aboutUsFooter() {
     return this.page.getByRole('link', { name: 'About us' });
   }
+  logo() {
+    return this.page.locator('.navbar-brand');
+  }
 
   async expectHomePageHeaderLoaded() {
     await expect(this.homeLink()).toBeVisible();

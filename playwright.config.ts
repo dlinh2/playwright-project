@@ -40,6 +40,7 @@ export default defineConfig({
   expect: {
     timeout: 10000, // expect wait 10s
   },
+  snapshotPathTemplate: '{testDir}/snapshots/{projectName}/{testFilePath}/{arg}{ext}',
 
 
   /* Configure projects for major browsers */

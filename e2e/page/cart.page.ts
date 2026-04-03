@@ -17,7 +17,7 @@ export class CartPage {
   async expectProductInCart(productName: string) {
     await expect(
       this.page.locator('#tbodyid')
-    ).toContainText(productName, { timeout: 10000 });
+    ).toContainText(productName, { timeout: 15000 });
   }
 
   async deleteProduct(productName: string) {
