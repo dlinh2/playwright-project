@@ -26,14 +26,24 @@ jobs:
         java-version: '17'
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: Load history
+      uses: actions/download-artifact@v4
+      with:
+        name: allure-history
+        path: allure-history
+      continue-on-error: true
+
     - name: Copy history
-      if: success() || failure()
       run: |
         [ -d "allure-history" ] && cp -r allure-history allure-results/history || echo "No history"
+
     - name: Run tests
       run: npx playwright test
+    - name: Install Allure CLI
+      run: npm install --save-dev allure-commandline
+
     - name: Generate report
-      run: npx allure generate allure-results --clean
+      run: npx allure-commandline generate allure-results --clean
     - name: Save history
       run: |
         mkdir -p allure-history
