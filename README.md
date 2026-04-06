@@ -486,5 +486,13 @@ These enhancements aim to align the framework with real-world automation standar
 * Test result 06/04/2026
   https://dlinh2.github.io/playwright-project/
 
+---
+
+## 📊 Generate Allure Report
+# Generate Allure report
+  npx allure generate ./allure-results --clean
+# Open Allure report
+  npx allure open
+
 
 
