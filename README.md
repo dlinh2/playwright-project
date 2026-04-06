@@ -13,6 +13,7 @@ The test suite validates core user flows on the demo e-commerce website:
 * Cucumber (BDD)
 * TypeScript
 * Node.js
+* Allure
 ---
 
 ## 🏗️ Project Structure
@@ -55,6 +56,7 @@ The test suite validates core user flows on the demo e-commerce website:
 ├── bdd.config.ts            # BDD configuration
 ├── test-results/            # Raw test results
 ├── playwright-report/       # HTML reports
+├── allure-report/           # Allure reports
 └── README.md
 ```
 
