@@ -8,7 +8,7 @@ test.describe('Home', () => {
     await Then('the user should see homepage content', null, { homePage }); 
   });
 
-  test('View header logo and store name', async ({ Given, Then, homePage, page }) => { 
+  test('View header logo and store name', { tag: ['@visual'] }, async ({ Given, Then, homePage, page }) => { 
     await Given('the user is on the homepage', null, { page }); 
     await Then('the user should see header logo and store name', null, { homePage }); 
   });
@@ -25,5 +25,5 @@ test.use({
 
 const bddFileData = [ // bdd-data-start
   {"pwTestLine":6,"pickleLine":4,"tags":["@smoke"],"steps":[{"pwStepLine":7,"gherkinStepLine":5,"keywordType":"Context","textWithKeyword":"Given the user is on the homepage","stepMatchArguments":[]},{"pwStepLine":8,"gherkinStepLine":6,"keywordType":"Outcome","textWithKeyword":"Then the user should see homepage content","stepMatchArguments":[]}]},
-  {"pwTestLine":11,"pickleLine":8,"tags":[],"steps":[{"pwStepLine":12,"gherkinStepLine":9,"keywordType":"Context","textWithKeyword":"Given the user is on the homepage","stepMatchArguments":[]},{"pwStepLine":13,"gherkinStepLine":10,"keywordType":"Outcome","textWithKeyword":"Then the user should see header logo and store name","stepMatchArguments":[]}]},
+  {"pwTestLine":11,"pickleLine":9,"tags":["@visual"],"steps":[{"pwStepLine":12,"gherkinStepLine":10,"keywordType":"Context","textWithKeyword":"Given the user is on the homepage","stepMatchArguments":[]},{"pwStepLine":13,"gherkinStepLine":11,"keywordType":"Outcome","textWithKeyword":"Then the user should see header logo and store name","stepMatchArguments":[]}]},
 ]; // bdd-data-end

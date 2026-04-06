@@ -36,7 +36,6 @@ export default defineConfig({
     video: 'retain-on-failure',
     trace: 'on-first-retry',
     headless: process.env.CI ? true : false,
-    viewport: { width: 1280, height: 720 },
   },
   expect: {
     timeout: 10000, // expect wait 10s
@@ -49,31 +48,36 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-      expect: {
-        toHaveScreenshot: {
-          maxDiffPixelRatio: 0.05,
-        },
-      },
+      grepInvert: /@visual/,
     },
 
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
-      expect: {
-        toHaveScreenshot: {
-          maxDiffPixelRatio: 0.05,
-        },
-      },
+      grepInvert: /@visual/,
     },
 
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
+      grepInvert: /@visual/,
+    },
+
+    {
+      name: 'visual-chromium',
+      use: { ...devices['Desktop Chrome'],
+        viewport: { width: 1280, height: 720 },
+        deviceScaleFactor: 1,
+        colorScheme: 'light',
+        locale: 'en-US'
+      },
+      grep: /@visual/,
       expect: {
         toHaveScreenshot: {
           maxDiffPixelRatio: 0.05,
         },
       },
+      
     },
 
     /* Test against mobile viewports. */
