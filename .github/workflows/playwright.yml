@@ -28,13 +28,27 @@ jobs:
       run: npx playwright test
     - name: Install Allure CLI
       run: npm install -g allure-commandline
-    - name: Generate Allure Report
-      run: allure generate allure-results -o allure-report --clean
-    - name: Upload report
-      uses: actions/upload-artifact@v4
+    - name: Load history
+      uses: actions/download-artifact@v3
       with:
-        name: allure-report
-        path: allure-report
+        name: allure-history
+        path: allure-history
+      continue-on-error: true
+    - name: Copy history
+      run: |
+        mkdir -p allure-results/history
+        cp -r allure-history/* allure-results/history || true
+    - name: Generate report
+      run: npx allure generate allure-results --clean
+    - name: Save history
+      run: |
+        mkdir -p allure-history
+        cp -r allure-report/history/* allure-history
+    - name: Upload history
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-history
+        path: allure-history
     - name: Deploy report
       uses: peaceiris/actions-gh-pages@v4
       with:
