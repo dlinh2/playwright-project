@@ -36,6 +36,7 @@ export default defineConfig({
     video: 'retain-on-failure',
     trace: 'on-first-retry',
     headless: process.env.CI ? true : false,
+    viewport: { width: 1280, height: 720 },
   },
   expect: {
     timeout: 10000, // expect wait 10s
