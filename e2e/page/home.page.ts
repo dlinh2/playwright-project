@@ -86,7 +86,13 @@ export class HomePage {
   }
 
   async clickProduct(productName: string) {
-    await this.page.getByRole('link', { name: productName }).click();
-    await expect(this.page).toHaveURL(/prod.html/, { timeout: 10000 });
+    const product = this.page.getByRole('link', { name: productName });
+
+    await expect(product).toBeVisible();
+
+    await Promise.all([
+      this.page.waitForURL(/prod.html/),
+      product.click()
+    ]);
   }
 }

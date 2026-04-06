@@ -20,8 +20,10 @@ export class LoginPage {
   }
 
   async openLoginModal() {
-    await this.page.getByRole('link', { name: 'Log in' }).click();
-    expect(this.usernameInput()).toBeVisible({ timeout: 10000 });
+    const loginLink = this.page.getByRole('link', { name: 'Log in' });
+    await expect(loginLink).toBeVisible();
+    await loginLink.click();
+    expect(this.usernameInput()).toBeVisible();
   }
   // ASSERT open modal
   async expectLoginModalOpen() {
@@ -38,19 +40,24 @@ export class LoginPage {
         await this.passwordInput().fill(password);
     }
 
-    await this.loginButton().click();
   }
   async expectLoginResult(message: string) {
     // ASSERT SUCCESS
     if (message.includes('Welcome') ){
     // Wait for the login process to complete and the welcome message to appear
+        await this.loginButton().click();
         await expect(
         this.page.getByRole('link', { name: message })).toBeVisible({ timeout: 10000 });
     }
     // ASSERT FAIL
-    await this.page.once('dialog', async (dialog) => {
-          await expect(dialog.message()).toContain(message);
+    else {
+      await Promise.all([
+        this.page.waitForEvent('dialog').then(async dialog => {
+          expect(dialog.message()).toContain(message);
           await dialog.accept();
-      });
+        }),
+        this.loginButton().click(),
+      ]);
+    }
   }
 }
