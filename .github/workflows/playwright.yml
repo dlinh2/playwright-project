@@ -29,7 +29,7 @@ jobs:
     - name: Install Allure CLI
       run: npm install -g allure-commandline
     - name: Load history
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: allure-history
         path: allure-history
