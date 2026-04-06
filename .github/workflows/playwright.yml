@@ -1,9 +1,11 @@
 name: Playwright Tests
+
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+
 jobs:
   test:
     timeout-minutes: 60
@@ -24,10 +26,6 @@ jobs:
         java-version: '17'
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run tests
-      run: npx playwright test
-    - name: Install Allure CLI
-      run: npm install -g allure-commandline
     - name: Load history
       uses: actions/download-artifact@v4
       with:
@@ -38,6 +36,8 @@ jobs:
       run: |
         mkdir -p allure-results/history
         cp -r allure-history/* allure-results/history || true
+    - name: Run tests
+      run: npx playwright test
     - name: Generate report
       run: npx allure generate allure-results --clean
     - name: Save history
@@ -54,3 +54,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./allure-report
+        keep_files: true
