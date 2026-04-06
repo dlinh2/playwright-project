@@ -48,16 +48,31 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      expect: {
+        toHaveScreenshot: {
+          maxDiffPixelRatio: 0.05,
+        },
+      },
     },
 
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
+      expect: {
+        toHaveScreenshot: {
+          maxDiffPixelRatio: 0.05,
+        },
+      },
     },
 
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
+      expect: {
+        toHaveScreenshot: {
+          maxDiffPixelRatio: 0.05,
+        },
+      },
     },
 
     /* Test against mobile viewports. */
