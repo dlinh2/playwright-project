@@ -113,7 +113,7 @@ npx playwright test tests/login.spec.ts
 ### ✅ Run by tag (BDD)
 
 ```bash
-npx cucumber-js --tags "@smoke"
+npx playwright test --grep "@regression"
 ```
 
 ---
@@ -125,14 +125,14 @@ npx cucumber-js --tags "@smoke"
 Used to group and filter tests:
 
 ```gherkin
-@smoke @login
+@regression
 Scenario: Successful login
 ```
 
 Run:
 
 ```bash
-npx cucumber-js --tags "@smoke"
+npx playwright test --grep "@regression"
 ```
 
 ---
@@ -191,6 +191,8 @@ playwright-report/index.html
 ```
 
 ---
+
+
 
 ## 🐞 Debugging
 

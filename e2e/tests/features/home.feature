@@ -1,5 +1,6 @@
 Feature: Home
 
+  @smoke
   Scenario: View Home
     Given the user is on the homepage
     Then the user should see homepage content

@@ -48,7 +48,7 @@ export class LoginPage {
         this.page.getByRole('link', { name: message })).toBeVisible({ timeout: 10000 });
     }
     // ASSERT FAIL
-    this.page.once('dialog', async (dialog) => {
+    await this.page.once('dialog', async (dialog) => {
           await expect(dialog.message()).toContain(message);
           await dialog.accept();
       });

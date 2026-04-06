@@ -1,5 +1,6 @@
 Feature: Login
 
+  @regression
   Scenario Outline: Login with "<type>" credentials
     Given the user is on the homepage
     When the user opens login modal
