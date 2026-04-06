@@ -483,6 +483,8 @@ These enhancements aim to align the framework with real-world automation standar
 <img width="1074" height="958" alt="image" src="https://github.com/user-attachments/assets/b8410ade-0a08-43f0-8b41-776376d9ded9" />
 * Test result 03/04/2026
 <img width="1010" height="947" alt="image" src="https://github.com/user-attachments/assets/a3abfb22-3281-4b21-bba4-9d4cb13bebd6" />
+* Test result 06/04/2026
+  https://dlinh2.github.io/playwright-project/
 
 
 
