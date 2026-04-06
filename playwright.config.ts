@@ -35,7 +35,7 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'on-first-retry',
-    headless: false,
+    headless: process.env.CI ? true : false,
   },
   expect: {
     timeout: 10000, // expect wait 10s
