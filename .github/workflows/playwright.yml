@@ -26,13 +26,6 @@ jobs:
         java-version: '17'
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Download Allure history
-      id: download
-      uses: actions/download-artifact@v4
-      with:
-        name: allure-history
-        path: allure-history
-      continue-on-error: true
     - name: Copy history
       if: success() || failure()
       run: |
