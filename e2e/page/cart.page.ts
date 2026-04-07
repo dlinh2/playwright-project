@@ -1,5 +1,4 @@
 import { Page, expect } from '@playwright/test';
-import { time } from 'node:console';
 
 export class CartPage {
   constructor(private page: Page) {}
